@@ -13,3 +13,11 @@ app.include_router(primes_router)
 from libs.commons.middleware import add_observability
 
 add_observability(app)
+from fastapi import Response
+from libs.commons.metrics import registry
+
+
+@app.get("/metrics")
+def metrics() -> Response:
+    text = registry().render_prometheus()
+    return Response(content=text, media_type="text/plain; version=0.0.4")
