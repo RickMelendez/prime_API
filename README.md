@@ -5,7 +5,7 @@ This repo is reset to a clean microservices baseline per PROJECT_PLAYBOOK.md.
 ## Structure
 
 - `services/primes`: minimal FastAPI service with `/health`
-- `services/api-gateway`: minimal FastAPI gateway with `/health`
+- `services/api_gateway`: minimal FastAPI gateway with `/health`
 - `libs/commons`: shared utilities (errors/result/logger)
 - `docs/ARCHITECTURE.md`: structure and evolution
 - `.github/workflows/ci.yml`: CI with lint + tests per service
@@ -24,8 +24,8 @@ uvicorn app.main:app --reload --port 8001 --app-dir services/primes
 API Gateway:
 
 ```
-pip install -r services/api-gateway/requirements.txt
-uvicorn app.main:app --reload --port 8000 --app-dir services/api-gateway
+pip install -r services/api_gateway/requirements.txt
+uvicorn app.main:app --reload --port 8000 --app-dir services/api_gateway
 ```
 
 ## Tests
@@ -34,7 +34,7 @@ Run tests per service:
 
 ```
 pytest -q services/primes
-pytest -q services/api-gateway
+pytest -q services/api_gateway
 ```
 
 ## CI

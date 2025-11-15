@@ -11,7 +11,7 @@ services:
   api-gateway:
     build:
       context: .
-      dockerfile: services/api-gateway/Dockerfile
+      dockerfile: services/api_gateway/Dockerfile
     image: api-gateway:dev
     container_name: api-gateway
     environment:
