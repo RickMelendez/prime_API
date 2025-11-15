@@ -10,3 +10,6 @@ def health():
 from services.api_gateway.handlers.http import router as primes_router
 
 app.include_router(primes_router)
+from libs.commons.middleware import add_observability
+
+add_observability(app)
