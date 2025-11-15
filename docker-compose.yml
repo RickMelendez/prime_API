@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  primes:
+    build:
+      context: .
+      dockerfile: services/primes/Dockerfile
+    image: primes-service:dev
+    container_name: primes
+    ports:
+      - "8001:8001"
+  api-gateway:
+    build:
+      context: .
+      dockerfile: services/api-gateway/Dockerfile
+    image: api-gateway:dev
+    container_name: api-gateway
+    environment:
+      - PRIMES_URL=http://primes:8001
+    ports:
+      - "8000:8000"
+    depends_on:
+      - primes

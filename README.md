@@ -40,3 +40,19 @@ pytest -q services/api-gateway
 ## CI
 
 GitHub Actions runs lint (flake8) and tests for each service.
+## Docker
+
+Build and run both services with Compose:
+
+```
+docker compose up --build
+```
+
+- Gateway: http://localhost:8000 (e.g., `/primes/check?n=7`, `/metrics`)
+- Primes: http://localhost:8001 (e.g., `/primes/check?n=7`, `/metrics`)
+
+Stop:
+
+```
+docker compose down
+```
