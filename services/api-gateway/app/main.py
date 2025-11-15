@@ -7,3 +7,6 @@ app = FastAPI(title="API Gateway", version="0.1.0")
 @app.get("/health")
 def health():
     return {"status": "ok", "service": "api-gateway", "version": "0.1.0"}
+from services.api_gateway.handlers.http import router as primes_router
+
+app.include_router(primes_router)
